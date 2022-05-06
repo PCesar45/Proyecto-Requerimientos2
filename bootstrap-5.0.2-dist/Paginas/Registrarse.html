@@ -6,6 +6,8 @@
 	<title>Registro TECBANK</title>
 
 	<link rel="stylesheet"  href="../css/bootstrap.css">
+
+	
 </head>
 <body class="container">
 	<div class="container mt-5 "  align="center">
@@ -30,20 +32,23 @@
 
 	    <div class="form-group">
 	      <div class="col-sm-10 mb-4">          
-	        <input type="password" class="form-control" id="Contra" placeholder="Contraseña" name="Contra">
+	        <input type="password" class="form-control" id="Contrase" placeholder="Contraseña"  
+	          pattern="(?=.*\d)(?=.*[!,¡,#,¿,?,@])(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="Contra">
 	     </div>
 	    </div>
 
 	    <div class="form-group">
 		  <div class="col-sm-10 mb-4" >   
-	      	<input type="text" class="form-control" id="Correo" placeholder="Correo" name="Correo">
+	      	<input type="email" class="form-control" id="Correo" placeholder="Correo" name="Correo">
 	      </div>
 	    </div>
 
-	    <a type="button" class="btn btn-light mt-5"  href="../index.html"> <h2>Registrarse</h2> </a>
+	    <a type="button" class="btn btn-light mt-5" onclick="Registrarse()"  > <h2>Registrarse</h2> </a>
+	     <!-- href="../index.html" -->
 
 	</div>
 	
+	<script src="../js/Registrarse.js"></script>
 	<script src="../js/bootstrap.bundle.js"></script>
 </body>
 </html>

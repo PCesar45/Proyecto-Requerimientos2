@@ -601,7 +601,7 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
-  background-color:#fe3032
+  background-color:#fe3032;
 }
 
 @media (min-width: 576px) {
@@ -6942,6 +6942,12 @@ textarea.form-control-lg {
 
 .mt-5 {
   margin-top: 3rem !important;
+}
+.mt-6{
+ margin-top: 8rem !important; 
+}
+.mt-7{
+ margin-top: 13rem !important; 
 }
 
 .mt-auto {

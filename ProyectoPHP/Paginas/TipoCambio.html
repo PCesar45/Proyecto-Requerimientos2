@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tipo de Cambio</title>
+
+	<link rel="stylesheet"  href="../css/bootstrap.css">
+
+	<script>
+		var req = new XMLHttpRequest();
+		req.open('GET', 'https://tipodecambio.paginasweb.cr/api', true);
+		req.onreadystatechange = function (aEvt) {
+		  if (req.readyState == 4) {
+		     if(req.status == 200)
+		      console.log(JSON.parse(req.responseText));
+		     else
+		      console.log("Error loading page\n");
+		  }
+		};
+		req.send(null); 
+	</script>
+</head>
+<body class="container" align="center">
+	<div class="container mt-5 p-5"   align="center">
+		<h1 class="mb-5">Tipo de cambio</h1>
+		<div class="container-sm border mt-4  p-4 mb-5">
+			<h2 class="mb-4">	Dolar:</h2>
+			<h4>	Compra: </h4>
+			<h4>	Venta: </h4>
+			
+		</div>
+		<div class="container-sm border p-4 ">
+			<h2 class="mb-4">	Euro:</h4>
+			<h4>	Compra: </h5>
+			<h4>	Venta: </h5>
+			
+		</div>
+		
+
+
+		<script src="../js/bootstrap.bundle.js"></script>
+	</div>
+</body>
+</html>

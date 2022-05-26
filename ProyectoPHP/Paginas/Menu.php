@@ -15,7 +15,7 @@
 		echo $_GET['id'];
 		?>
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn  btn-light"  href="VerCuentas.php ?id=<?= $_GET['id']; ?>">Ver Cuentas</a>
+			<a type="button" class="btn  btn-light"  href="VerCuentas.php ?ban=false & id=<?= $_GET['id']; ?>">Ver Cuentas</a>
 		</div>
 		
 		<div class="container mb-4 d-block ">

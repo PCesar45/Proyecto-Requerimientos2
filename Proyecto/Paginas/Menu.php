@@ -19,7 +19,7 @@
 		</div>
 		
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Citas.html">Citas</a>
+			<a type="button" class="btn btn-light"  href="Citas.php ?id=<?= $_GET['id']; ?>">Citas</a>
 		</div>
 
 		<div class="container mb-4 d-block ">
@@ -27,23 +27,23 @@
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Reportes.php">Reportes</a>
+			<a type="button" class="btn btn-light"  href="Reportes.php ?id=<?= $_GET['id']; ?>">Reportes</a>
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Transferencias.php">Realizar una Transferencia bancaria</a>
+			<a type="button" class="btn btn-light"  href="Transferencias.php ?id=<?= $_GET['id']; ?>">Realizar una Transferencia bancaria</a>
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Historial.php">Historial de movimientos de las transferencias </a>
+			<a type="button" class="btn btn-light"  href="Historial.php ?id=<?= $_GET['id']; ?>">Historial de movimientos de las transferencias </a>
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Servicios.html">Pago de Servicios</a>
+			<a type="button" class="btn btn-light"  href="Servicios.php">Pago de Servicios</a>
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="CambioContr.php">Cambio de contraseña</a>
+			<a type="button" class="btn btn-light"  href="CambioContr.php ?id=<?= $_GET['id']; ?>">Cambio de contraseña</a>
 		</div>
 		<div class="container mb-4 d-block ">
 			<a type="button" class="btn btn-light"  href="TipoCambio.html">Tipo de cambio</a>

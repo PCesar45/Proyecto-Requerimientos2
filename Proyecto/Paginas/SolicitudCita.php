@@ -6,27 +6,61 @@
 	<title>Solicitud cita</title>
 
 	<link rel="stylesheet"  href="../css/bootstrap.css">
+
+	<script>
+	function Registrar(){
+			
+		TipoE = document.getElementById('TipoS');
+		console.log(TipoE.value);
+		SucursalE = document.getElementById('SucursalS');
+		console.log(SucursalE.value);
+		diaE = document.getElementById('dia');
+		if(diaE.value==""){
+			alert("Rellene el día de la cita")
+		}
+		else{
+			console.log(diaE.value);
+			horaE = document.getElementById('hora');
+			if(horaE.value==""){
+				alert("Rellene la hora de la cita");
+			}
+			else{
+				console.log(TipoE.value);
+				location.href="RegistrarCita.php ? Tipo="+TipoE.value+"& id=<?= $_GET['id']; ?>& Sucursal="+SucursalE.value+"& dia="+diaE.value+"& hora="+horaE.value;
+			}
+
+			
+
+		}
+		
+		//location.href="VerCuentas.php ?ban=true  & id=<?= $_GET['id']; ?>& CuentaE="+cuentaE.value;
+
+		
+	};
+			
+	</script>
+
 <body class="container p-5">
 	<div class="mt-5 "  align="center" >
 		<h1>Solicitud cita</h1>
 
 		<h4 class="mt-3">Tipo:</h4>
-		<select class="form-select mb-3" aria-label="Default select example" >
+		<select class="form-select mb-3" id="TipoS" aria-label="Default select example" >
 		  <option selected>Solicitud Firma digital</option>
-		  <option value="1">Solicitud o renovacion licencia</option>
-		  <option value="2">Solicitud o renovacion pasaporte</option>
-		  <option value="3">Reserva de espacio</option>
+		  <option value="Solicitud o renovacion licencia">Solicitud o renovacion licencia</option>
+		  <option value="Solicitud o renovacion pasaporte">Solicitud o renovacion pasaporte</option>
+		  <option value="Reserva de espacio">Reserva de espacio</option>
 		</select>
 		
 		<h4>Sucursal:</h4>
-		<select class="form-select" aria-label="Default select example">
+		<select class="form-select"  id="SucursalS" aria-label="Default select example">
 		  <option selected>San José Centro</option>
-		  <option value="1">Multiplaza del Este</option>
-		  <option value="2">Lincoln Plaza</option>
-		  <option value="3">Alajuela Centro</option>
-		  <option value="4">City Mall</option>
-		  <option value="5">Oxigeno Mall</option>
-		  <option value="6">Paseo Metropoli</option>
+		  <option value="Multiplaza del Este">Multiplaza del Este</option>
+		  <option value="Lincoln Plaza">Lincoln Plaza</option>
+		  <option value="Alajuela Centro">Alajuela Centro</option>
+		  <option value="City Mall">City Mall</option>
+		  <option value="Oxigeno Mall">Oxigeno Mall</option>
+		  <option value="Paseo Metropoli">Paseo Metropoli</option>
 		</select>
 
 		
@@ -45,7 +79,7 @@
 	     </div>
 	    </div>
 
-	     <a type="button" class="btn btn-light mt-3" onclick="Registrarse()"  > <h4>Enviar</h4> </a>
+	     <a type="button" class="btn btn-light mt-3" onclick="Registrar()"> <h4>Enviar</h4> </a>
 
 	</div>
 	<script src="../js/bootstrap.bundle.js"></script>

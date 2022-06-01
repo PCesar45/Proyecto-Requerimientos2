@@ -1,3 +1,9 @@
+<?php
+   error_reporting(0);
+   require '../dbcon.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,16 +13,34 @@
 
 	<link rel="stylesheet"  href="../css/bootstrap.css">
 	
-	<script src="../js/BD.js"></script>
+
 <body class="container p-5">
 	<div class="mt-5 "  align="center" >
 		<h1 class="mb-4">Transferencias</h1>
+		<?php
+			echo $_GET['id'];?>
+		<select class="form-select" aria-label="Default select example" id="CuenST" name="CuentaSelect">
+		<option selected>Cuentas</option>
+		
+		<?php
+			echo $_GET['id'];
+			$Usuario_id = mysqli_real_escape_string($con, $_GET['id']);
+            $query = "SELECT * FROM cuentas  WHERE usuario_id= '$Usuario_id' ";
 
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Cuenta 1</option>
-		  <option value="1">Cuenta 2</option>
-		  <option value="2">Cuenta 3</option>
+			$query_run = mysqli_query($con, $query);
+
+			if(mysqli_num_rows($query_run) > 0)
+			{
+				foreach($query_run as $Cuenta)
+				{				
+			?>	
+				<option value=<?= $Cuenta['id']?>><?= $Cuenta['nombre']?></option>	
+			<?php
+				} 
+			}
+			?>
 		</select>
+
 
 		<div class="form-group mt-4">
 	      <div class="col-sm-10 mb-3">          

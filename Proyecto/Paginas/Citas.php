@@ -15,11 +15,15 @@
 		</div>
 
 		<div class=" mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="ModificarCita.php">Modificar cita</a>
+			<a type="button" class="btn btn-light"  href="ModificarCita.php?id=<?= $_GET['id']; ?>">Modificar cita</a>
 		</div>
 
 		<div class="mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="CancelarCita.php">Cancelar cita</a>
+			<a type="button" class="btn btn-light"  href="CancelarCita.php?id=<?= $_GET['id']; ?>">Cancelar cita</a>
+		</div>
+		
+		<div class="mb-4 d-block ">
+			<a type="button" class="btn  btn-light"  href="Menu.php ?id=<?= $_GET['id']; ?>">Volver al menu</a>
 		</div>
 	</div>
 		<script src="../js/bootstrap.bundle.js"></script>

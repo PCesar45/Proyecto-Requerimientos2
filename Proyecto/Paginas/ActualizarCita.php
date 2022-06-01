@@ -1,11 +1,11 @@
 <script>
     function Vcita(cit){
         if (cit) {
-            alert(' cita registrada correctamente');
+            alert(' Fecha y hora  de la cita modificada correctamente');
             location.href="Citas.php ?id=<?= $_GET['id']; ?>"
         }
         else{
-            alert('No se pudo registrar la cita');
+            alert('No se pudo modificar la cita');
             location.href="SolicitudCita.php ?id=<?= $_GET['id']; ?>"
         }
     }
@@ -13,16 +13,14 @@
 <?php
 require '../dbcon.php';
 
-$tipo = mysqli_real_escape_string($con, $_GET['Tipo']);
-$Sucursal= mysqli_real_escape_string($con, $_GET['Sucursal']);
 $dia = mysqli_real_escape_string($con,  $_GET['dia']);
 $hora= mysqli_real_escape_string($con,  $_GET['hora']);
 $Usuario_id = mysqli_real_escape_string($con, $_GET['id']);
+$Cita_id=mysqli_real_escape_string($con, $_GET['cita']);
 
-echo $tipo;
-echo $_GET['Tipo'];
 
-$query = "INSERT INTO citas (tipo,sucursal,dia,hora,usuario_id) VALUES ('$tipo','$Sucursal','$dia','$hora','$Usuario_id')";
+
+$query = "UPDATE citas SET dia='$dia', hora='$hora' WHERE id='$Cita_id' and usuario_id='$Usuario_id' ";
 
 $query_run = mysqli_query($con, $query);
 if($query_run)
@@ -34,7 +32,9 @@ if($query_run)
 }
 else
 {
-    echo mysqli_error($con);
+    echo "<script>
+    Vcita(false)
+    </script>";
 }
 
 ?>

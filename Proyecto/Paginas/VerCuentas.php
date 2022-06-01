@@ -42,8 +42,6 @@
 		<option selected>Cuentas</option>
 		
 		<?php
-		    echo $_GET['ban'];
-
 			$Usuario_id = mysqli_real_escape_string($con, $_GET['id']);
             $query = "SELECT * FROM cuentas  WHERE usuario_id= '$Usuario_id' ";
 
@@ -51,17 +49,10 @@
 
 			if(mysqli_num_rows($query_run) > 0)
 			{
-				
 				foreach($query_run as $Cuenta)
-				{
-					$i=$i+1;
-
-				
-			?>
-				
-				
-				<option value=<?= $Cuenta['id']?>><?= $Cuenta['nombre']?></option>
-				
+				{				
+			?>	
+				<option value=<?= $Cuenta['id']?>><?= $Cuenta['nombre']?></option>	
 			<?php
 				} 
 			}

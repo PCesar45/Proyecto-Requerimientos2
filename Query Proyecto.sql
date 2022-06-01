@@ -29,7 +29,32 @@ CREATE TABLE IF NOT EXISTS citas (
 	PRIMARY KEY (id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
-
+CREATE TABLE IF NOT EXISTS SalidaDelPais (
+	id int  NOT NULL AUTO_INCREMENT,
+    nombre varchar(255) ,
+    cedula int ,
+    tel int,
+    correo varchar(255) ,
+    paisdestino varchar(255),
+    llegada date,
+    salida date,
+    usuario_id int,
+	PRIMARY KEY (id),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+CREATE TABLE IF NOT EXISTS movTransferencias (
+	id int  NOT NULL AUTO_INCREMENT,
+    CuentaBene int,
+    ced int,
+    monto  float,
+    detalle varchar(255),
+    nombreCuenta varchar(255),
+    fecha date,
+    hora time,
+    usuario_id int,
+	PRIMARY KEY (id),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
 INSERT INTO usuarios (nombre,apellido,correo,usuario,contraseña) VALUES('Pablo','Villafuerte','pacviu@gmail.com','pvillafuerte','p123'),('Gabriela','Gutierrez','gaby.gutierrez.va@gmail.com' ,'ggutierrez','g123'),('Pia','Sancho','piasancho1@hotmail.com','psancho','p123');
 INSERT INTO cuentas (nombre,numero,saldo,usuario_id) VALUES
                       ('Cuenta principal','111',32000,1),
@@ -40,3 +65,6 @@ INSERT INTO cuentas (nombre,numero,saldo,usuario_id) VALUES
                       ('Cuenta Secundaria Pia','334',100000,3);
 select * from usuarios;
 select * from citas;
+SELECT * FROM citas  WHERE usuario_id= 3;
+select * from salidadelpais;
+UPDATE citas SET hora='19:47' WHERE id= 1 and usuario_id=3;

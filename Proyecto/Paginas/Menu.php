@@ -10,10 +10,8 @@
 </head>
 <body class="container">
 	<div class="container mt-5 "  align="center" >
-		<h2  class="mb-5">Menu TECBANK</h2>
-		<?php 
-		echo $_GET['id'];
-		?>
+		<h2  class="mb-3">Menu TECBANK</h2>
+
 		<div class="container mb-4 d-block ">
 			<a type="button" class="btn  btn-light"  href="VerCuentas.php ?ban=false & id=<?= $_GET['id']; ?>">Ver Cuentas</a>
 		</div>
@@ -23,7 +21,7 @@
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Tramites.html">Solicitar Tramites</a>
+			<a type="button" class="btn btn-light"  href="Tramites.php ?id=<?= $_GET['id']; ?>">Solicitar Tramites</a>
 		</div>
 
 		<div class="container mb-4 d-block ">
@@ -48,6 +46,10 @@
 		<div class="container mb-4 d-block ">
 			<a type="button" class="btn btn-light"  href="TipoCambio.html">Tipo de cambio</a>
 		</div>
+		<div class="container mb-4 d-block ">
+			<a type="button" class="btn btn-light"  href="../index.php">Salir</a>
+		</div>
+
 	</div>
 	<script src="../js/bootstrap.bundle.js"></script>
 </body>

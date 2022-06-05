@@ -48,23 +48,24 @@ CREATE TABLE IF NOT EXISTS movTransferencias (
     ced int,
     monto  float,
     detalle varchar(255),
-    nombreCuenta varchar(255),
-    fecha date,
-    hora time,
+    banco varchar(255),
+    cuenta_id int,
     usuario_id int,
 	PRIMARY KEY (id),
+    FOREIGN KEY (cuenta_id) REFERENCES cuentas(id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 INSERT INTO usuarios (nombre,apellido,correo,usuario,contraseña) VALUES('Pablo','Villafuerte','pacviu@gmail.com','pvillafuerte','p123'),('Gabriela','Gutierrez','gaby.gutierrez.va@gmail.com' ,'ggutierrez','g123'),('Pia','Sancho','piasancho1@hotmail.com','psancho','p123');
 INSERT INTO cuentas (nombre,numero,saldo,usuario_id) VALUES
-                      ('Cuenta principal','111',32000,1),
+                      ('Cuenta principal','111',3200000,1),
                       ('Cuenta Secundaria','112',20000,1),
                       ('Cuenta Gabriela','222',50000,2),
                       ('Cuenta Gabriela 2','223',30000,2),
-                      ('Cuenta principal Pia','333',200000,3),
+                      ('Cuenta principal Pia','333',7000000,3),
                       ('Cuenta Secundaria Pia','334',100000,3);
 select * from usuarios;
 select * from citas;
 SELECT * FROM citas  WHERE usuario_id= 3;
 select * from salidadelpais;
 UPDATE citas SET hora='19:47' WHERE id= 1 and usuario_id=3;
+select * from movTransferencias;

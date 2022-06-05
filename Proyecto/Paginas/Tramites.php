@@ -12,7 +12,7 @@
 		<h1>Tramites</h1>
 
 		<div class="mt-5 mb-4 d-block">
-			<a type="button" class="btn btn-light"  href="PlanAhorros.php">Iniciar plan de ahorro</a>
+			<a type="button" class="btn btn-light"  href="PlanAhorros.php?id=<?= $_GET['id']; ?>">Iniciar plan de ahorro</a>
 		</div>
 
 	</div>

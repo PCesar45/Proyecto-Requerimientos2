@@ -1,6 +1,8 @@
 <?php
    error_reporting(0);
    require '../dbcon.php';
+   
+
 
 ?>
 
@@ -12,7 +14,57 @@
 	<title>Transferencias</title>
 
 	<link rel="stylesheet"  href="../css/bootstrap.css">
-	
+	<script>
+		var compra;
+		var req = new XMLHttpRequest();
+		req.open('GET', 'https://tipodecambio.paginasweb.cr/api', true);
+		req.onreadystatechange = function (aEvt) {
+		  if (req.readyState == 4) {
+		     if(req.status == 200){
+		      console.log(JSON.parse(req.responseText));
+			  respuesta=JSON.parse(req.responseText);
+			  console.log(respuesta.compra);
+			  compra=respuesta.compra;
+			 }
+		     else
+		      console.log("Error loading page\n");
+		  }
+		};
+		req.send(null); 
+		var externa=false;
+		function Transferencia(){
+			cuentaE = document.getElementById('CuenST');
+			CuentaIB = document.getElementById('CuentaIB');
+			Ced = document.getElementById('Ced');
+			monto = document.getElementById('Monto');
+			cuentaT = document.getElementById('cuentaT');
+			Detalle=document.getElementById('Detalle');
+			console.log(monto.value)
+			if(cuentaE.value!="Cuentas"& monto.value!=""){
+				if(externa==true){
+					monto.value=parseFloat(monto.value)+(parseFloat(compra)*2);
+					console.log(monto.value);
+				}
+				location.href="RealizarTransferencia.php ? CuentaE="+cuentaE.value+"& CuentaIB="+CuentaIB.value+"& Ced="+Ced.value+"& cuentaT="+cuentaT.value+"& Detalle="+Detalle.value+"& id=<?= $_GET['id']; ?>& Monto="+monto.value;
+			}
+
+		}
+		var ban; 
+		function Cuentas(){
+			cuentaT = document.getElementById('cuentaT');
+			if(cuentaT.value !="Cuenta Interna"){
+				if(ban==true){
+					alert("Cuenta externa se le cobrara una comision de 2 dolares");
+					ban=false;
+					externa=true;
+				}
+				
+			}else{
+				externa=false;
+				ban=true;
+			}
+		}
+	</script>
 
 <body class="container p-5">
 	<div class="mt-5 "  align="center" >
@@ -66,18 +118,15 @@
 	      </div>
 	    </div>
 
-	    <div class="custom-control custom-radio">
-		  <input type="radio" class="custom-control-input" id="CuentaInterna" name="flexRadioDefault">
-		  <label class="custom-control-label" for="CuentaInterna"><h3>Cuenta Interna</h3></label>
-		</div>
-
-		<div class="custom-control custom-radio">
-		  <input type="radio" class="custom-control-input" id="CuentaExterna" name="flexRadioDefault">
-		  <label class="custom-control-label" for="CuentaExterna"><h3>Cuenta Externa</h3></label>
-		</div>
+	    <select class="form-select" id="cuentaT"  onclick="Cuentas()" aria-label="Default select example">
+		  <option selected>Cuenta Interna</option>
+		  <option value="Banco de Costa Rica">Banco de Costa Rica</option>
+		  <option value="Banco Nacional">Banco Nacional</option>
+		  <option value="Banco Popular">Banco Popular</option>
+		</select>
 
 	    
- 		<a type="button" class="btn btn-light mt-3" onclick="VerUsuarios()"  > <h4>Procesar</h4> </a>
+ 		<a type="button" class="btn btn-light mt-3" onclick="Transferencia()"  > <h4>Procesar</h4> </a>
 
 	</div>
 

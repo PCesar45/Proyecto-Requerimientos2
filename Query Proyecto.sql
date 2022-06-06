@@ -55,6 +55,44 @@ CREATE TABLE IF NOT EXISTS movTransferencias (
     FOREIGN KEY (cuenta_id) REFERENCES cuentas(id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
+CREATE TABLE pagoAguaLuz(
+    id int NOT NULL ,
+    cedula varchar(255),
+    monto float,
+    empresa varchar(255),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE pagoInternet(
+    id int NOT NULL,
+    cedula varchar(255),
+    monto float,
+    empresa varchar(255),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE pagoUniversidades(
+    id int NOT NULL,
+    cedula varchar(255),
+    monto float,
+    empresa varchar(255),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO pagoAguaLuz VALUES
+(1,"118110667",32000,"ICE"),
+(2,"118110669",43000,"AyA");
+
+
+INSERT INTO pagoInternet VALUES
+(1,"118110667",35000,"Kolbi"),
+(2,"118110669",16000,"Tigo");
+
+
+INSERT INTO pagoUniversidades VALUES
+(1,"118110667",100000,"TEC"),
+(2,"118110669",22000,"UNA");
+
 INSERT INTO usuarios (nombre,apellido,correo,usuario,contraseña) VALUES('Pablo','Villafuerte','pacviu@gmail.com','pvillafuerte','p123'),('Gabriela','Gutierrez','gaby.gutierrez.va@gmail.com' ,'ggutierrez','g123'),('Pia','Sancho','piasancho1@hotmail.com','psancho','p123');
 INSERT INTO cuentas (nombre,numero,saldo,usuario_id) VALUES
                       ('Cuenta principal','111',3200000,1),

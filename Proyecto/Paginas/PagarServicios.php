@@ -24,8 +24,22 @@
         $row = $result->fetch_assoc(); 
         echo "<script> console.log($row[saldo])</script>";
         $Saldo=$row['saldo'];
-        $Monto=$_GET['Monto'];
-        if($row['saldo']<$_GET['Monto']){
+
+        $val=$_GET['Cedula'];
+        $Cedula = mysqli_real_escape_string($con, $val);
+        $query = "SELECT monto FROM pagoAguaLuz  WHERE cedula= '$Cedula' ";
+
+        $result = mysqli_query($con, $query);
+        if ($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            echo  "<h3>"+$row["monto"]+"<h3>";
+            $Monto=$row["monto"];
+            
+        }
+
+
+        if($Saldo<$Monto){
             echo "<script>
             Vsaldo(false)
             </script>";

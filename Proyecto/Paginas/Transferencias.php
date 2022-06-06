@@ -69,8 +69,7 @@
 <body class="container p-5">
 	<div class="mt-5 "  align="center" >
 		<h1 class="mb-4">Transferencias</h1>
-		<?php
-			echo $_GET['id'];?>
+
 		<select class="form-select" aria-label="Default select example" id="CuenST" name="CuentaSelect">
 		<option selected>Cuentas</option>
 		

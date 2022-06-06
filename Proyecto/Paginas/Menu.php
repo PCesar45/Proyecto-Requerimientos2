@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="container mb-4 d-block ">
-			<a type="button" class="btn btn-light"  href="Servicios.php">Pago de Servicios</a>
+			<a type="button" class="btn btn-light"  href="Servicios.php ?id=<?= $_GET['id']; ?>">Pago de Servicios</a>
 		</div>
 
 		<div class="container mb-4 d-block ">
